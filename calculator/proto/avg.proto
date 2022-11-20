@@ -8,5 +8,5 @@ message AvgRequest {
 }
 
 message AvgResponse {
-    int64 result = 1;
+    double result = 1;
 }

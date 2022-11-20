@@ -38,7 +38,7 @@ func doAvg(c pb.CalculatorServiceClient) {
 		log.Printf("Sending req: %v", req)
 
 		stream.Send(req)
-		time.Sleep(1 * time.Second)
+		time.Sleep(200 * time.Millisecond)
 	}
 
 	res, err := stream.CloseAndRecv()
@@ -46,5 +46,5 @@ func doAvg(c pb.CalculatorServiceClient) {
 		log.Fatalf("error: %v", err)
 	}
 
-	fmt.Printf("Avg: %d\n", res.Result)
+	fmt.Printf("Avg: %f\n", res.Result)
 }

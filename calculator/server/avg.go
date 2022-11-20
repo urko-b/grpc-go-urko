@@ -14,7 +14,7 @@ func (s *Server) Avg(stream pb.CalculatorService_AvgServer) error {
 		req, err := stream.Recv()
 		if err == io.EOF {
 			return stream.SendAndClose(&pb.AvgResponse{
-				Result: sum / count,
+				Result: float64(sum) / float64(count),
 			})
 		}
 		if err != nil {
