@@ -19,7 +19,6 @@ func main() {
 	if tls {
 		certFile := "ssl/ca.crt"
 		creds, err := credentials.NewClientTLSFromFile(certFile, "")
-
 		if err != nil {
 			log.Fatalf("Error while loading CA trust certificate: %v\n", err)
 		}
@@ -29,9 +28,7 @@ func main() {
 		opts = append(opts, creds)
 	}
 
-
 	conn, err := grpc.Dial(addr, opts...)
-
 	if err != nil {
 		log.Fatalf("Did not connect: %v", err)
 	}
@@ -39,8 +36,8 @@ func main() {
 	defer conn.Close()
 	c := pb.NewGreetServiceClient(conn)
 
-	doGreet(c)
-	// doGreetManyTimes(c)
+	// doGreet(c)
+	doGreetManyTimes(c)
 	// doLongGreet(c)
 	// doGreetEveryone(c)
 	// doGreetWithDeadline(c, 5*time.Second)
