@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package calculator;
+option go_package = "github.com/urko-b/grpc-go-urko/calculator/proto";
+
+message AvgRequest {
+    int64 number = 1;
+}
+
+message AvgResponse {
+    int64 result = 1;
+}
