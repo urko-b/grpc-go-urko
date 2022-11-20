@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package calculator;
+
+import "sum.proto";
+
+option go_package = "github.com/urko-b/grpc-go-urko/calculator/proto";
+
+service CalculatorService {
+  rpc Sum(SumRequest) returns (SumResponse);
+}
