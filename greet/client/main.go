@@ -13,7 +13,7 @@ import (
 var addr string = "localhost:50051"
 
 func main() {
-	tls := false // change that to true if needed
+	tls := true // change that to false if needed
 	opts := []grpc.DialOption{}
 
 	if tls {
@@ -36,10 +36,10 @@ func main() {
 	defer conn.Close()
 	c := pb.NewGreetServiceClient(conn)
 
-	// doGreet(c)
+	doGreet(c)
 	// doGreetManyTimes(c)
 	// doLongGreet(c)
-	doGreetEveryone(c)
+	// doGreetEveryone(c)
 	// doGreetWithDeadline(c, 5*time.Second)
 	// doGreetWithDeadline(c, 1*time.Second)
 }

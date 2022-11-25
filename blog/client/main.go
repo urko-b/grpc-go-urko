@@ -6,7 +6,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	pb "github.com/urko-b/grpc-go-urko/calculator/proto"
+	pb "github.com/urko-b/grpc-go-urko/blog/proto"
 )
 
 var addr string = "localhost:50051"
@@ -18,12 +18,7 @@ func main() {
 	}
 
 	defer conn.Close()
-	c := pb.NewCalculatorServiceClient(conn)
+	c := pb.NewBlogServiceClient(conn)
 
-	// doSum(c)
-	// doPrimes(c)
-	// doAvg(c)
-	// doMax(c)
-	// doSqrt(c, 10)
-	doSqrt(c, -2)
+	createBlog(c)
 }
