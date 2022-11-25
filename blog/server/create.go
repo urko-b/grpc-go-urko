@@ -12,7 +12,7 @@ import (
 )
 
 func (s *Server) CreateBlog(ctx context.Context, in *pb.Blog) (*pb.BlogId, error) {
-	fmt.Printf("CreateBlog was invoke wint %v\n", in)
+	fmt.Printf("CreateBlog was invoke with %v\n", in)
 
 	data := BlogItem{
 		AuthorID: in.AuthorId,
